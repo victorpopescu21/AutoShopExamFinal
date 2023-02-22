@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
 import ro.itschool.repository.ProductRepository;
-import ro.itschool.service.ShoppingCartService;
+import ro.itschool.service.impl.ShoppingCartServiceImpl;
 import ro.itschool.service.UserService;
 import ro.itschool.util.Constants;
 
@@ -23,22 +23,11 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @Autowired
-    private ShoppingCartService shoppingCartService;
+    private ShoppingCartServiceImpl shoppingCartService;
     @Autowired
     private UserService userService;
 
 
-//    @GetMapping(value = "/all")
-//    public List<Product> getAllProducts(){
-//        return productRepository.findAll();
-//    }
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    @PostMapping
-//    public ResponseEntity<Product> addProductToShop(@RequestBody Product product){
-//        return  new ResponseEntity<>(productRepository.save(product), HttpStatus.OK);
-//    }
-//
-    //    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/delete/{id}")
     public String removeProduct(@PathVariable Long id){
         shoppingCartService.deleteProductByIdFromShoppingCart(id);

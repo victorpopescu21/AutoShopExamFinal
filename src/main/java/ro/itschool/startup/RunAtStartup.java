@@ -11,8 +11,8 @@ import ro.itschool.entity.User;
 import ro.itschool.repository.RoleRepository;
 import ro.itschool.repository.UserRepository;
 import ro.itschool.service.ProductService;
-import ro.itschool.service.ShoppingCartService;
 import ro.itschool.service.UserService;
+import ro.itschool.service.impl.ShoppingCartServiceImpl;
 import ro.itschool.util.Constants;
 
 import java.util.HashSet;
@@ -33,7 +33,7 @@ public class RunAtStartup {
 
 
     @Autowired
-    private ShoppingCartService shoppingCartService;
+    private ShoppingCartServiceImpl shoppingCartService;
 
     @Autowired
     private ProductService productService;
@@ -51,15 +51,15 @@ public class RunAtStartup {
 
         saveUser();
         saveAdminUser();
-        saveUserToDelete();
+
 
 
     }
 
     private void saveAdminUser() {
         User myUser = new User();
-        myUser.setUsername("admin");
-        myUser.setPassword("admin");
+        myUser.setUsername("Victor");
+        myUser.setPassword("Parola");
         myUser.setRandomToken("randomToken");
         final Set<Role> roles = new HashSet<>();
 
@@ -70,9 +70,9 @@ public class RunAtStartup {
         myUser.setAccountNonExpired(true);
         myUser.setAccountNonLocked(true);
         myUser.setCredentialsNonExpired(true);
-        myUser.setEmail("admin1@gmail.com");
-        myUser.setFullName("Ion Admin");
-        myUser.setPasswordConfirm("admin");
+        myUser.setEmail("victpop01@gmail.com");
+        myUser.setFullName("Victor Popescu");
+        myUser.setPasswordConfirm("Parola");
         myUser.setRandomTokenEmail("randomToken");
         userService.saveUser(myUser);
     }
@@ -100,30 +100,7 @@ public class RunAtStartup {
         ShoppingCart cart = myUser1.getShoppingCart();
         cart.setUser(myUser1);
         cart.setProducts(products);
-        //ShoppingCart myCart = shoppingCartService.update(cart);
-
-       // myUser1.setShoppingCart(cart);
         userService.updateUser(myUser1);
-
-    }
-
-    public void saveUserToDelete() {
-        User myUser = new User();
-        myUser.setUsername("ion");
-        myUser.setPassword("ion");
-        myUser.setRandomToken("randomToken");
-        final Set<Role> roles = new HashSet<>();
-        roles.add(roleRepository.findByName(Constants.ROLE_USER));
-        myUser.setRoles(roles);
-        myUser.setEnabled(true);
-        myUser.setAccountNonExpired(true);
-        myUser.setAccountNonLocked(true);
-        myUser.setCredentialsNonExpired(true);
-        myUser.setEmail("Ion@gmail.com");
-        myUser.setFullName("Ion Deleteme User");
-        myUser.setPasswordConfirm("ion");
-        myUser.setRandomTokenEmail("randomToken");
-        userService.updateUser(myUser);
 
     }
 }

@@ -11,8 +11,9 @@ import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
 import ro.itschool.repository.OrderRepository;
 import ro.itschool.repository.ProductRepository;
-import ro.itschool.service.ShoppingCartService;
+import ro.itschool.service.impl.ShoppingCartServiceImpl;
 import ro.itschool.service.UserService;
+import ro.itschool.util.Constants;
 
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ import java.util.Optional;
 public class ShoppingCartController {
 
     @Autowired
-    private ShoppingCartService shoppingCartService;
+    private ShoppingCartServiceImpl shoppingCartService;
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -29,28 +30,6 @@ public class ShoppingCartController {
 
     @Autowired
     private UserService userService;
-
-//    @PutMapping(value = "/add/{cartId}")
-//    public ResponseEntity addProductToCart(@PathVariable Long cartId, @RequestParam Long productId){
-//        Product product = productRepository.findById(productId).orElseThrow();
-//        ShoppingCart cart = shoppingCartService.findById(cartId).orElseThrow();
-//
-//        cart.addProductToShoppingCart(product);
-//        shoppingCartService.update(cart);
-//
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @PutMapping(value = "/remove/{cartId}")
-//    public ResponseEntity removeProductFromCart(@PathVariable Long cartId, @RequestParam Long productId){
-//        Product product = productRepository.findById(productId).orElseThrow();
-//        ShoppingCart cart = shoppingCartService.findById(cartId).orElseThrow();
-//
-//        cart.removeProductFromShoppingCart(product);
-//        shoppingCartService.update(cart);
-//
-//        return ResponseEntity.ok().build();
-//    }
 
     @RequestMapping(value= "/to-order")
     public String convertToOrder(){
@@ -60,7 +39,7 @@ public class ShoppingCartController {
         orderRepository.save(shoppingCartService.convertShoppingCartToOrder(userByUserName.getShoppingCart()));
         userByUserName.getShoppingCart().getProducts().clear();
         userService.updateUser(userByUserName);
-        return "order-successful";
+        return Constants.ORDER_SUCCESSFUL;
     }
 
     @RequestMapping
@@ -71,7 +50,7 @@ public class ShoppingCartController {
 
         model.addAttribute("products", userByUserName.getShoppingCart().getProducts());
 
-        return "shopping-cart";
+        return Constants.SHOPPING_CART;
     }
     @RequestMapping(value = "/product/remove/{productId}")
     public String removeProductFromShoppingCart(@PathVariable Long productId){
@@ -82,7 +61,7 @@ public class ShoppingCartController {
         userByUserName.getShoppingCart().getProducts().removeIf(product -> product.getId().equals(productId));
         userService.updateUser(userByUserName);
 
-        return "redirect:/shopping-cart";
+        return Constants.REDIRECT_TO_CART;
 
     }
 
