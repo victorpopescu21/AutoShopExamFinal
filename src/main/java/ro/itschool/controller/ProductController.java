@@ -49,7 +49,7 @@ public class ProductController {
     @RequestMapping(value = {"/all"})
     public String index(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("products", productRepository.findByDeletedIsFalse());
+        model.addAttribute("products", productRepository.findAll());
         return "products";
     }
 
@@ -64,6 +64,7 @@ public class ProductController {
         User userByUserName = userService.findUserByUserName(currentPrincipleName);
         // checking if the product is in DB, if yes then add it to shoppingCart of the auth user
         optionalProduct.ifPresent(product-> {
+
             userByUserName.getShoppingCart().addProductToShoppingCart(product);
             userService.updateUser(userByUserName);
         });
@@ -75,7 +76,7 @@ public class ProductController {
     public String addProduct(Model model){
         model.addAttribute("product", new Product());
 
-        return "add-product";
+        return Constants.ADD_PRODUCT;
 
     }
     @PostMapping(value = "/add-new")

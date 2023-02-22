@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findDistinctByUsernameIgnoreCase(String username);
+    User findByUsernameIgnoreCase(String username);
 
     User findByEmail(String username);
 

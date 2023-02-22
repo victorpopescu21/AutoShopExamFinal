@@ -37,6 +37,10 @@
     </style>
 </head>
 <body>
+<header>
+    <div th:replace="~{fragments/navs.html :: topnav}"></div>
+
+</header>
 
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <div class="container my-2">
