@@ -9,4 +9,6 @@ import java.util.List;
 public interface ProductService {
 
     List<Product> getProductsByBrand(String name);
+
+//    List<Product> getProductByColor(String name);
 }

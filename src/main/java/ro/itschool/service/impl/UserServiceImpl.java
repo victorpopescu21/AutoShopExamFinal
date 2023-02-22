@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User findUserByUserName(String userName) {
-        return userRepository.findByUsernameIgnoreCase(userName);
+        return userRepository.findDistinctByUsernameIgnoreCase(userName);
     }
 
     public User findUserByRandomToken(String randomToken) {
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public boolean findUserByUserNameAndPassword(String userName, String password) {
-        final Optional<User> myUser = Optional.ofNullable(userRepository.findByUsernameIgnoreCase(userName));
+        final Optional<User> myUser = Optional.ofNullable(userRepository.findDistinctByUsernameIgnoreCase(userName));
         return myUser.filter(user -> BCrypt.checkpw(password, user.getPassword())).isPresent();
     }
 
@@ -82,6 +82,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
+    }
+
+    @Override
+    public List<User> searchUser(String keyword) {
+        return userRepository.searchUser(Objects.requireNonNullElse(keyword, ""));
+
     }
 
     private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {

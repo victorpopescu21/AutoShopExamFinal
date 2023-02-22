@@ -28,7 +28,9 @@
                     <th> Brand </th>
                     <th> Model </th>
                     <th> Price </th>
-                    <th> Delete product </th>
+                    <th> Not Available </th>
+                    <th>  </th>
+
 
 
                 </tr>
@@ -41,6 +43,7 @@
                     <td><span th:text="${product.brand}"> </span></td>
                     <td><span th:text="${product.model}"> </span></td>
                     <td><span th:text="${product.price}"> </span></td>
+                    <td><span th:text="${product.deleted}"> </span></td>
                     <td><a th:href="@{'/shopping-cart/product/remove/' + ${product.id}}"
                                                                  class="fa-solid fa-trash"></a>
                     </td>

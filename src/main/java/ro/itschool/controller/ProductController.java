@@ -5,8 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
 import ro.itschool.repository.ProductRepository;
@@ -39,7 +38,7 @@ public class ProductController {
 //        return  new ResponseEntity<>(productRepository.save(product), HttpStatus.OK);
 //    }
 //
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/delete/{id}")
     public String removeProduct(@PathVariable Long id){
         shoppingCartService.deleteProductByIdFromShoppingCart(id);
@@ -47,6 +46,13 @@ public class ProductController {
         return Constants.REDIRECT_TO_PRODUCTS;
 
     }
+    @RequestMapping(value = {"/all"})
+    public String index(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("products", productRepository.findByDeletedIsFalse());
+        return "products";
+    }
+
     @RequestMapping(value = "/add/{id}")
     public String addProductToShoppingCart(@PathVariable Long id){
         // searching the product by Id
@@ -65,12 +71,19 @@ public class ProductController {
         return Constants.REDIRECT_TO_PRODUCTS;
 
     }
+    @GetMapping(value = "/add-new")
+    public String addProduct(Model model){
+        model.addAttribute("product", new Product());
 
-    @RequestMapping(value = {"/all"})
-    public String index(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("products", productRepository.findAll());
-        return "products";
+        return "add-product";
+
+    }
+    @PostMapping(value = "/add-new")
+    public String addProduct(@ModelAttribute("product") @RequestBody Product product){
+        product.setDeleted(false);
+        productRepository.save(product);
+        return Constants.REDIRECT_TO_PRODUCTS;
+
     }
 
 

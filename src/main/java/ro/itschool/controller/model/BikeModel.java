@@ -6,18 +6,21 @@ import ro.itschool.entity.MotorBike;
 
 @Data
 public class BikeModel {
-    @CsvBindByPosition(position = 4)
-    private String brand;
-    @CsvBindByPosition(position = 5)
-    private String model;
     @CsvBindByPosition(position = 6)
+    private String brand;
+    @CsvBindByPosition(position = 7)
+    private String model;
+    @CsvBindByPosition(position = 8)
     private Float price;
+    @CsvBindByPosition(position = 9)
+    private Boolean deleted;
 
     public MotorBike bikeToEntity(){
         MotorBike bike = new MotorBike();
         bike.setBrand(this.brand);
         bike.setModel(this.model);
         bike.setPrice(this.price);
+        bike.setDeleted(this.deleted);
         return bike;
     }
 }

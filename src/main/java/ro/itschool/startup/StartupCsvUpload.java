@@ -32,7 +32,7 @@ public class StartupCsvUpload {
     @Autowired
     private BicycleRepo bicycleRepo;
     public ResponseEntity uploadFile() {
-        File file = new File("src/main/resources/Autoshop.csv");
+        File file = new File("src/main/resources/Autoshop2.csv");
         try {
             FileInputStream input = new FileInputStream(file);
             MultipartFile multipartFile = new MockMultipartFile("file", file.getName(), "text/plain", input.readAllBytes());

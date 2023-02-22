@@ -5,18 +5,21 @@ import lombok.Data;
 import ro.itschool.entity.Bicycle;
 @Data
 public class BicycleModel {
-    @CsvBindByPosition(position = 8)
+    @CsvBindByPosition(position = 11)
     private String brand;
-    @CsvBindByPosition(position = 9)
+    @CsvBindByPosition(position = 12)
     private String model;
-    @CsvBindByPosition(position = 10)
+    @CsvBindByPosition(position = 13)
     private Float price;
+    @CsvBindByPosition(position = 14)
+    private Boolean deleted;
 
     public Bicycle cycleToEntity(){
         Bicycle bicycle = new Bicycle();
         bicycle.setBrand(this.brand);
         bicycle.setModel(this.model);
         bicycle.setPrice(this.price);
+        bicycle.setDeleted(this.deleted);
         return bicycle;
     }
 }

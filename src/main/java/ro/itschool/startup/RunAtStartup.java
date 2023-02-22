@@ -51,6 +51,7 @@ public class RunAtStartup {
 
         saveUser();
         saveAdminUser();
+        saveUserToDelete();
 
 
     }
@@ -106,5 +107,23 @@ public class RunAtStartup {
 
     }
 
+    public void saveUserToDelete() {
+        User myUser = new User();
+        myUser.setUsername("ion");
+        myUser.setPassword("ion");
+        myUser.setRandomToken("randomToken");
+        final Set<Role> roles = new HashSet<>();
+        roles.add(roleRepository.findByName(Constants.ROLE_USER));
+        myUser.setRoles(roles);
+        myUser.setEnabled(true);
+        myUser.setAccountNonExpired(true);
+        myUser.setAccountNonLocked(true);
+        myUser.setCredentialsNonExpired(true);
+        myUser.setEmail("Ion@gmail.com");
+        myUser.setFullName("Ion Deleteme User");
+        myUser.setPasswordConfirm("ion");
+        myUser.setRandomTokenEmail("randomToken");
+        userService.updateUser(myUser);
 
+    }
 }

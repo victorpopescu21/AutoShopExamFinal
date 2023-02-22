@@ -4,11 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-
 
 public class Product {
     @Id
@@ -22,7 +21,7 @@ public class Product {
 
     private Float price;
 
- //   private Boolean deleted;
+    private Boolean deleted;
 
 
 

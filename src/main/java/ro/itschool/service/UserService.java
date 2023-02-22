@@ -27,6 +27,6 @@ public interface UserService {
 
     Optional<User> findById(Long id);
 
-    //List<MyUserDTO> searchUser(String keyword);
+    List<User> searchUser(String keyword);
 
 }
