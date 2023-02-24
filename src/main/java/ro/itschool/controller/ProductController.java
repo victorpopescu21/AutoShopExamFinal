@@ -6,13 +6,18 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ro.itschool.entity.Car;
 import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
+import ro.itschool.repository.CarRepo;
 import ro.itschool.repository.ProductRepository;
+import ro.itschool.service.ProductService;
 import ro.itschool.service.impl.ShoppingCartServiceImpl;
 import ro.itschool.service.UserService;
 import ro.itschool.util.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,6 +31,10 @@ public class ProductController {
     private ShoppingCartServiceImpl shoppingCartService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
+    @Autowired
+    private CarRepo carRepo;
 
 
     @RequestMapping(value = "/delete/{id}")
@@ -75,6 +84,14 @@ public class ProductController {
         return Constants.REDIRECT_TO_PRODUCTS;
 
     }
+
+    @GetMapping(value = "/product-search")
+    public String searchProducts(Model model,String keyword){
+        List<Model> modelList = new ArrayList<>();
+        modelList.add(model.addAttribute("products", productService.searchForProduct(keyword)));
+        return "product-search";
+    }
+
 
 
 }

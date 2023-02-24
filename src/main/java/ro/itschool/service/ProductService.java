@@ -1,5 +1,6 @@
 package ro.itschool.service;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import ro.itschool.entity.Product;
 
@@ -10,5 +11,5 @@ public interface ProductService {
 
     List<Product> getProductsByBrand(String name);
 
-//    List<Product> getProductByColor(String name);
+    List<Product> searchForProduct(String keyword);
 }

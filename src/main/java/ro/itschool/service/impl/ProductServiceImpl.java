@@ -8,6 +8,7 @@ import ro.itschool.repository.ProductRepository;
 import ro.itschool.service.ProductService;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -20,10 +21,9 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findByBrandIgnoreCase(name);
     }
 
-//    @Override
-//    public List<Product> getProductByColor(String name) {
-//
-//        List<Car> optionalCars = carRepo.findByColor(name);
-//        return ;
-//    }
+    @Override
+    public List<Product> searchForProduct(String keyword) {
+        return productRepository.searchProduct(Objects.requireNonNullElse(keyword,""));
+    }
+
 }

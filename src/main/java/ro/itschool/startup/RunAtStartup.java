@@ -1,13 +1,12 @@
 package ro.itschool.startup;
 
+import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import ro.itschool.entity.Product;
-import ro.itschool.entity.Role;
-import ro.itschool.entity.ShoppingCart;
-import ro.itschool.entity.User;
+import ro.itschool.entity.*;
+import ro.itschool.repository.ContactRepository;
 import ro.itschool.repository.RoleRepository;
 import ro.itschool.repository.UserRepository;
 import ro.itschool.service.ProductService;
@@ -18,6 +17,7 @@ import ro.itschool.util.Constants;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 @Component
 public class RunAtStartup {
@@ -39,6 +39,9 @@ public class RunAtStartup {
     private ProductService productService;
 
     @Autowired
+    private ContactRepository contactRepository;
+
+    @Autowired
     private StartupCsvUpload csvUpload;
 
     @EventListener(ContextRefreshedEvent.class)
@@ -51,6 +54,7 @@ public class RunAtStartup {
 
         saveUser();
         saveAdminUser();
+        saveContacts();
 
 
 
@@ -58,8 +62,8 @@ public class RunAtStartup {
 
     private void saveAdminUser() {
         User myUser = new User();
-        myUser.setUsername("Victor");
-        myUser.setPassword("Parola");
+        myUser.setUsername("victor");
+        myUser.setPassword("parola");
         myUser.setRandomToken("randomToken");
         final Set<Role> roles = new HashSet<>();
 
@@ -72,7 +76,7 @@ public class RunAtStartup {
         myUser.setCredentialsNonExpired(true);
         myUser.setEmail("victpop01@gmail.com");
         myUser.setFullName("Victor Popescu");
-        myUser.setPasswordConfirm("Parola");
+        myUser.setPasswordConfirm("parola");
         myUser.setRandomTokenEmail("randomToken");
         userService.saveUser(myUser);
     }
@@ -102,5 +106,21 @@ public class RunAtStartup {
         cart.setProducts(products);
         userService.updateUser(myUser1);
 
+    }
+
+    public void saveContacts(){
+
+        Faker faker = new Faker();
+
+        Stream
+                .generate(()-> contactRepository.save(
+                        new Contact(
+                                faker.funnyName().name(),
+                                faker.internet().emailAddress(),
+                                "No subject",
+                                "No message"))
+                )
+                .limit(5)
+                .toList();
     }
 }

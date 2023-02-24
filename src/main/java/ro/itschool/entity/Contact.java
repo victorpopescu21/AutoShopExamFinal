@@ -28,6 +28,12 @@ public class Contact {
 
     private String message;
 
+    public Contact(String username, String email, String subject, String message) {
+        this.username = username;
+        this.email = email;
+        this.subject = subject;
+        this.message = message;
+    }
 }
 
 
