@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ro.itschool.entity.Car;
 import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
+
 import ro.itschool.repository.CarRepo;
 import ro.itschool.repository.ProductRepository;
 import ro.itschool.service.ProductService;
@@ -54,7 +55,7 @@ public class ProductController {
     @RequestMapping(value = "/add/{id}")
     public String addProductToShoppingCart(@PathVariable Long id){
         // searching the product by Id
-        Optional<Product> optionalProduct=productRepository.findById(id);
+        Optional<Product> optionalProduct = productRepository.findById(id);
         // getting authenticated user name
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipleName = auth.getName();

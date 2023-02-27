@@ -10,6 +10,7 @@ import ro.itschool.repository.ContactRepository;
 import ro.itschool.repository.RoleRepository;
 import ro.itschool.repository.UserRepository;
 import ro.itschool.service.ProductService;
+import ro.itschool.service.RoleService;
 import ro.itschool.service.UserService;
 import ro.itschool.service.impl.ShoppingCartServiceImpl;
 import ro.itschool.util.Constants;
@@ -26,14 +27,7 @@ public class RunAtStartup {
     private UserService userService;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
-
-
-    @Autowired
-    private ShoppingCartServiceImpl shoppingCartService;
+    private RoleService roleService;
 
     @Autowired
     private ProductService productService;
@@ -47,8 +41,8 @@ public class RunAtStartup {
     @EventListener(ContextRefreshedEvent.class)
     public void contextRefreshedEvent() {
 
-        roleRepository.save(new Role(Constants.ROLE_USER));
-        roleRepository.save(new Role(Constants.ROLE_ADMIN));
+        roleService.saveRole(new Role(Constants.ROLE_USER));
+        roleService.saveRole(new Role(Constants.ROLE_ADMIN));
 
         csvUpload.uploadFile();
 
@@ -67,8 +61,8 @@ public class RunAtStartup {
         myUser.setRandomToken("randomToken");
         final Set<Role> roles = new HashSet<>();
 
-        roles.add(roleRepository.findByName(Constants.ROLE_USER));
-        roles.add(roleRepository.findByName(Constants.ROLE_ADMIN));
+        roles.add(roleService.findRoles(Constants.ROLE_USER));
+        roles.add(roleService.findRoles(Constants.ROLE_ADMIN));
         myUser.setRoles(roles);
         myUser.setEnabled(true);
         myUser.setAccountNonExpired(true);
@@ -86,7 +80,7 @@ public class RunAtStartup {
         myUser.setPassword("user");
         myUser.setRandomToken("randomToken");
         final Set<Role> roles = new HashSet<>();
-        roles.add(roleRepository.findByName(Constants.ROLE_USER));
+        roles.add(roleService.findRoles(Constants.ROLE_USER));
         myUser.setRoles(roles);
         myUser.setEnabled(true);
         myUser.setAccountNonExpired(true);
@@ -123,4 +117,6 @@ public class RunAtStartup {
                 .limit(5)
                 .toList();
     }
+
+
 }

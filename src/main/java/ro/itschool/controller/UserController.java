@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ro.itschool.exception.UserNotFound;
 import ro.itschool.repository.RoleRepository;
 import ro.itschool.service.UserService;
 import ro.itschool.util.Constants;
@@ -41,7 +42,10 @@ public class UserController {
     //---------DELETE a user by id for ADMINs only ------------------------------
     @RequestMapping(path = "/delete/{id}")
     public String deleteUserById(Model model, @PathVariable("id") Long id) {
-        userService.deleteById(id);
+        if(userService.findById(id).isPresent()){
+            userService.deleteById(id);
+        }else throw new UserNotFound("User not found to be deleted!");
+
         return Constants.REDIRECT_TO_USERS;
     }
 

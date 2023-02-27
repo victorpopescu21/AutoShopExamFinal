@@ -26,4 +26,15 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.searchProduct(Objects.requireNonNullElse(keyword,""));
     }
 
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    @Override
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+
 }

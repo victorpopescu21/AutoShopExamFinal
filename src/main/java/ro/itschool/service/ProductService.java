@@ -9,7 +9,12 @@ import java.util.List;
 @Service
 public interface ProductService {
 
-    List<Product> getProductsByBrand(String name);
+   public List<Product> getProductsByBrand(String name);
 
-    List<Product> searchForProduct(String keyword);
+    public List<Product> searchForProduct(String keyword);
+
+    public List<Product> getAllProducts();
+
+    public Product saveProduct(Product product);
+
 }
