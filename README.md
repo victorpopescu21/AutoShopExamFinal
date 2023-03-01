@@ -34,6 +34,7 @@ To build and run the project, follow these steps:
 * Navigate to the project directory: cd AutoShopExamFinal
 * Build the project: mvn clean install
 * Run the project: mvn spring-boot:run
+* Download XAMPP from `https://www.apachefriends.org/download.html` to interact with Data Base
 
 ### Alternative
 * Simply install IntelliJ IDEA CE available for download at `https://www.jetbrains.com/idea/download` (Community Edition)
