@@ -47,7 +47,6 @@
                                                 <div class="row">
                                                     <div class="col-md-8">
                                                         <div class="input-group mb-3">
-                                                            <h3>Please search for a product:</h3>
 
                                                             <input type="text" name="keyword" th:value="${keyword}"
                                                                    class="form-control input-text" placeholder="Search"
@@ -69,6 +68,7 @@
                                                     <th> Brand </th>
                                                     <th> Model </th>
                                                     <th> Price </th>
+                                                    <th>Not Available</th>
                                                     <th sec:authorize="hasRole('ROLE_ADMIN')"> Delete product </th>
                                                     <th> Add to cart</th>
 
@@ -83,8 +83,11 @@
                                                     <td><span th:text="${product.brand}"> </span></td>
                                                     <td><span th:text="${product.model}"> </span></td>
                                                     <td><span th:text="${product.price}"> </span></td>
-                                                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{'/product/delete/' + ${product.id}}"
-                                                                                                 ><i class="fas fa-trash"></i></a>
+                                                    <td><span th:text="${product.deleted}"> </span></td>
+                                                    <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                                        <a th:href="@{'/product/delete/' + ${product.id}}">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
                                                     </td>
                                                     <td><a th:href="@{'/product/add/' + ${product.id}}">
                                                         <i class="fas fa-plus"></i></a>

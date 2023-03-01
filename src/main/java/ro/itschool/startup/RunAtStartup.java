@@ -92,13 +92,13 @@ public class RunAtStartup {
         myUser.setRandomTokenEmail("randomToken");
 
 
-        User myUser1 =userService.saveUser(myUser); // salvam intai userul ca sa obtinem ID ul userului
+        userService.saveUser(myUser); // salvam intai userul ca sa obtinem ID ul userului
 
-        List<Product> products = productService.getProductsByBrand("bmw");
-        ShoppingCart cart = myUser1.getShoppingCart();
-        cart.setUser(myUser1);
-        cart.setProducts(products);
-        userService.updateUser(myUser1);
+////        List<Product> products = productService.getProductsByBrand("bmw");
+//        ShoppingCart cart = myUser1.getShoppingCart();
+//        cart.setUser(myUser1);
+//        cart.setProducts(products);
+//        userService.updateUser(myUser1);
 
     }
 
