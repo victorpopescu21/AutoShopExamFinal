@@ -15,7 +15,7 @@ public class  LoginController {
     public String login() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "login";
+            return Constants.LOGIN;
         }
         return Constants.REDIRECT_TO_PRODUCT_SEARCH;
     }
@@ -23,6 +23,6 @@ public class  LoginController {
     @RequestMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
-        return "login.html";
+        return Constants.LOGIN;
     }
 }

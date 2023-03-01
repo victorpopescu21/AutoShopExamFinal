@@ -36,7 +36,7 @@ public class UserController {
 //                .findAny()
 //                .orElseThrow(() -> new Exception("User with admin roles not found")));
 
-        return "all-users";
+        return Constants.ALL_USERS;
     }
 
     //---------DELETE a user by id for ADMINs only ------------------------------

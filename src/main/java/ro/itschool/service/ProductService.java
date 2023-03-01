@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ro.itschool.entity.Product;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface ProductService {
@@ -17,4 +18,7 @@ public interface ProductService {
 
     Product saveProduct(Product product);
 
+    Optional<Product> findById(Long id);
+
+    void deleteById(Long id);
 }

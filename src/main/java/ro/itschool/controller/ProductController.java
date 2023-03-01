@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
+import ro.itschool.exception.ProductNotFound;
 import ro.itschool.repository.CarRepo;
 import ro.itschool.repository.ProductRepository;
 import ro.itschool.service.ProductService;
@@ -22,8 +23,6 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
-    @Autowired
     private ShoppingCartServiceImpl shoppingCartService;
     @Autowired
     private UserService userService;
@@ -32,23 +31,27 @@ public class ProductController {
 
 
     @RequestMapping(value = "/delete/{id}")
-    public String removeProduct(@PathVariable Long id){
-        shoppingCartService.deleteProductByIdFromShoppingCart(id);
-        productRepository.deleteById(id);
+    public String removeProduct(@PathVariable Long id) throws ProductNotFound {
+        if(productService.findById(id).isPresent()) {
+            shoppingCartService.deleteProductByIdFromShoppingCart(id);
+            productService.deleteById(id);
+        }else
+            throw new ProductNotFound("Product could not be found.");
+
         return Constants.REDIRECT_TO_PRODUCT_SEARCH;
 
     }
     @GetMapping(value = {"/all"})
     public String index(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("products", productService.getAllProducts());
         return Constants.REDIRECT_TO_PRODUCT_SEARCH;
     }
 
     @RequestMapping(value = "/add/{id}")
     public String addProductToShoppingCart(@PathVariable Long id){
         // searching the product by Id
-        Optional<Product> optionalProduct = productRepository.findById(id);
+        Optional<Product> optionalProduct = productService.findById(id);
         // getting authenticated user name
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipleName = auth.getName();
@@ -56,7 +59,6 @@ public class ProductController {
         User userByUserName = userService.findUserByUserName(currentPrincipleName);
         // checking if the product is in DB, if yes then add it to shoppingCart of the auth user
         optionalProduct.ifPresent(product-> {
-
             userByUserName.getShoppingCart().addProductToShoppingCart(product);
             userService.updateUser(userByUserName);
         });
@@ -74,7 +76,7 @@ public class ProductController {
     @PostMapping(value = "/add-new")
     public String addProduct(@ModelAttribute("product") @RequestBody Product product){
         product.setDeleted(false);
-        productRepository.save(product);
+        productService.saveProduct(product);
         return Constants.REDIRECT_TO_PRODUCT_SEARCH;
 
     }
@@ -82,7 +84,7 @@ public class ProductController {
     @GetMapping(value = "/search-products")  // returns that product saved on model and populates it
     public String searchProducts(Model model, String keyword) {
         model.addAttribute("products", productService.searchProduct(keyword));
-        return "product-search";
+        return Constants.PRODUCT_SEARCH;
 
 
     }

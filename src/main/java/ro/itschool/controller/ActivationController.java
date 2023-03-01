@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ro.itschool.entity.User;
 import ro.itschool.repository.UserRepository;
 import ro.itschool.service.UserService;
+import ro.itschool.util.Constants;
 
 import java.util.Optional;
 
@@ -24,9 +25,9 @@ public class ActivationController {
         final Optional<User> userByRandomToken = Optional.ofNullable(userService.findUserByRandomToken(randomToken));
         if (userByRandomToken.isPresent()) {
             model.addAttribute("user", userByRandomToken.get());
-            return "activation";
+            return Constants.ACTIVATION;
         } else
-            return "invalid-token";
+            return Constants.INVALID_TOKEN;
 
     }
 
@@ -35,7 +36,7 @@ public class ActivationController {
         final User myUser = userService.findUserByRandomToken(user.getRandomToken());
         myUser.setEnabled(true);
         userRepository.save(myUser);
-        return "activation-success";
+        return Constants.ACTIVATION_SUCCESS;
     }
 
 }

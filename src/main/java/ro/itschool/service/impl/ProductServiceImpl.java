@@ -8,13 +8,12 @@ import ro.itschool.repository.ProductRepository;
 import ro.itschool.service.ProductService;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
-    @Autowired
-    private CarRepo carRepo;
     @Override
     public List<Product> getProductsByBrand(String name) {
         return productRepository.findByBrandIgnoreCase(name);
@@ -33,6 +32,16 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product saveProduct(Product product) {
         return productRepository.save(product);
+    }
+
+    @Override
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
     }
 
 

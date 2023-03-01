@@ -21,8 +21,6 @@ public class RegisterController {
     @Autowired
     UserService userService;
     @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
     private RoleService roleService;
 
     @GetMapping(value = "/register")// should work with DTO, not with Entity
@@ -33,7 +31,7 @@ public class RegisterController {
         user.setCredentialsNonExpired(true);
         user.setEnabled(false);
         model.addAttribute("user", user);
-        return "register";
+        return Constants.REGISTER;
     }
 
     @PostMapping(value = "/register")
@@ -41,9 +39,9 @@ public class RegisterController {
         if (user.getPassword().equals(user.getPasswordConfirm())) {
             user.setRoles(Set.of(roleService.findRoles(Constants.ROLE_USER)));
             userService.saveUser(user);
-            return "register-success";
+            return Constants.REGISTER_SUCCESS;
         } else {
-            return "register";
+            return Constants.REGISTER;
         }
     }
 

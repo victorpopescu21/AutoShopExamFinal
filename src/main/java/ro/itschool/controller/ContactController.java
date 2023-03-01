@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.itschool.entity.Contact;
 import ro.itschool.entity.User;
+import ro.itschool.exception.UserNotFound;
 import ro.itschool.repository.ContactRepository;
+import ro.itschool.util.Constants;
 
 @Controller
 public class ContactController {
@@ -17,29 +19,29 @@ public class ContactController {
     @GetMapping("/contact-message")
     public String getContact(Model model, String keyword) {
         model.addAttribute("contacts", contactRepository.searchContact(keyword));
-        return "/contact-message";
+        return Constants.CONTACT_MESSAGE;
     }
 
     @GetMapping("/contact")
     public String saveContact(Model model) {
         model.addAttribute("contactObject", new Contact());
-        return "contact";
+        return Constants.CONTACT;
     }
 
     //TODO
     @PostMapping("/contact")
-    public String saveContact2(@ModelAttribute Contact contact, Model model, User user) throws Exception {
+    public String saveContact2(@ModelAttribute Contact contact, Model model, User user) throws UserNotFound {
         model.addAttribute("contactObject", contact);
         if (contact.getUsername().equals((user.getUsername()))){
             contactRepository.save(contact);
-            return "redirect:/contact";
+            return Constants.REDIRECT_CONTACT;
         } else
-            throw new Exception("Wrong username");
+            throw new UserNotFound("Wrong username");
     }
 
     @RequestMapping(path = "/delete-contact/{id}")
     public String deleteContact(@PathVariable("id") Integer id) {
         contactRepository.deleteById(id);
-        return "redirect:/contact-message";
+        return Constants.REDIRECT_CONTACT_MESSAGE;
     }
 }
