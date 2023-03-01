@@ -17,7 +17,7 @@ public class  LoginController {
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "login";
         }
-        return Constants.REDIRECT_TO_PRODUCTS;
+        return Constants.REDIRECT_TO_PRODUCT_SEARCH;
     }
 
     @RequestMapping("/login-error")

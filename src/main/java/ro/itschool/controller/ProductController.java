@@ -1,22 +1,18 @@
 package ro.itschool.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ro.itschool.entity.Car;
 import ro.itschool.entity.Product;
 import ro.itschool.entity.User;
-
 import ro.itschool.repository.CarRepo;
 import ro.itschool.repository.ProductRepository;
 import ro.itschool.service.ProductService;
 import ro.itschool.service.impl.ShoppingCartServiceImpl;
 import ro.itschool.service.UserService;
 import ro.itschool.util.Constants;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,29 +23,26 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
-
     @Autowired
     private ShoppingCartServiceImpl shoppingCartService;
     @Autowired
     private UserService userService;
     @Autowired
     private ProductService productService;
-    @Autowired
-    private CarRepo carRepo;
 
 
     @RequestMapping(value = "/delete/{id}")
     public String removeProduct(@PathVariable Long id){
         shoppingCartService.deleteProductByIdFromShoppingCart(id);
         productRepository.deleteById(id);
-        return Constants.REDIRECT_TO_PRODUCTS;
+        return Constants.REDIRECT_TO_PRODUCT_SEARCH;
 
     }
-    @RequestMapping(value = {"/all"})
+    @GetMapping(value = {"/all"})
     public String index(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("products", productRepository.findAll());
-        return "products";
+        return Constants.REDIRECT_TO_PRODUCT_SEARCH;
     }
 
     @RequestMapping(value = "/add/{id}")
@@ -68,10 +61,10 @@ public class ProductController {
             userService.updateUser(userByUserName);
         });
 
-        return Constants.REDIRECT_TO_PRODUCTS;
+        return Constants.REDIRECT_TO_PRODUCT_SEARCH;
 
     }
-    @GetMapping(value = "/add-new")
+    @GetMapping(value = "/add-new") // getmapping used to create a new empty product to show in the front end
     public String addProduct(Model model){
         model.addAttribute("product", new Product());
 
@@ -82,17 +75,15 @@ public class ProductController {
     public String addProduct(@ModelAttribute("product") @RequestBody Product product){
         product.setDeleted(false);
         productRepository.save(product);
-        return Constants.REDIRECT_TO_PRODUCTS;
+        return Constants.REDIRECT_TO_PRODUCT_SEARCH;
 
     }
 
-    @GetMapping(value = "/product-search")
-    public String searchProducts(Model model,String keyword){
-        List<Model> modelList = new ArrayList<>();
-        modelList.add(model.addAttribute("products", productService.searchForProduct(keyword)));
+    @GetMapping(value = "/search-products")  // returns that product saved on model and populates it
+    public String searchProducts(Model model, String keyword) {
+        model.addAttribute("products", productService.searchProduct(keyword));
         return "product-search";
+
+
     }
-
-
-
 }

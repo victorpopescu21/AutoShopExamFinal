@@ -13,8 +13,6 @@ public class CarModel {
     @CsvBindByPosition(position = 2)
     private Float price;
     @CsvBindByPosition(position = 3)
-    private String color;
-    @CsvBindByPosition(position = 4)
     private Boolean deleted;
 
 
@@ -23,7 +21,6 @@ public class CarModel {
         car.setBrand(this.brand);
         car.setModel(this.model);
         car.setPrice(this.price);
-        car.setColor(this.color);
         car.setDeleted(this.deleted);
         return car;
     }

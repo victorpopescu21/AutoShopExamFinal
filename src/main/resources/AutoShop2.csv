@@ -1,61 +1,61 @@
-CarBrand;CarModel;CarPrice;Color;IsDeleted;;BikeBrand;BikeBrand;BikePrice;IsDeleted;;BicycleBrand;BicycleModel;BicyclePrice;IsDeleted
-BMW ;X5;60395;Orange;0;;Honda;CBR500R;6999;0;;Trek;XCaliber 9;1799;0
-BMW ;4 Series;45000;Yellow;1;;Yamaha;YZFR6;12199;0;;Specialized;Rockhopper Expert;1150;1
-BMW ;M2;59000;Blue;0;;Ducati;Scrambler Icon;9395;1;;Giant;Contend SL 1 Disc;1650;1
-BMW ;7 Series;87000;Black;1;;Triumph;Street Triple RS;12550;0;;Cannondale;CAAD13 Disc 105;1750;1
-BMW ;i8;148000;Orange;1;;Kawasaki;Ninja ZX10R;16399;0;;Santa Cruz;Bronson C R;4299;1
-MercedesBenz ;EClass ;54000;Black;1;;Harley-Davidson;Softail Deluxe;18399;0;;Yeti;SB130 C1;7199;0
-MercedesBenz ;GLS ;76000;Brown;1;;BMW;S 1000 XR;17895;1;;Pivot;Mach 4 SL Carbon;9999;1
-MercedesBenz ;GClass ;130000;Blue;0;;Suzuki;GSXR1000R;17749;0;;Ibis;Ripmo AF;3799;0
-MercedesBenz ;AMG C63;70000;Green;1;;KTM;790 Adventure R;13699;0;;Scott;Scale 935;2699;1
-MercedesBenz ;SLS AMG ;224000;Brown;1;;Aprilia;Tuono V4 1100;15999;1;;Merida;Big Trail 400;1299;1
-Audi ;A7;69000;Red;0;;MV Agusta;F4 Claudio;84498;0;;BMC;Teammachine SLR02 One;3999;0
-Audi ;Q3;34000;Red;0;;Indian;Chieftain Limited;28999;0;;Orbea;Terra H30D;2199;1
-Audi ;R8;142000;Gray;0;;Husqvarna;Svartpilen 401;6299;0;;Pinarello;Dogma F12;9999;1
-Audi ;S5;52000;Yellow;1;;Benelli;TNT 600;7499;0;;Bianchi;Oltre XR3;5500;1
-Audi ;A3;33000;Blue;0;;Royal Enfield;Himalayan;4749;0;;Cervelo;S3 Ultegra;4500;0
-Volkswagen ;Jetta ;18000;Gray;1;;Moto Guzzi;V7 III Stone;8490;1;;Colnago;Concept Ultegra;5499;1
-Volkswagen ;Touareg ;49000;Gray;0;;Vespa;GTS Super 300 HPE;7399;0;;Felt;AR1;8999;1
-Volkswagen ;eGolf ;31000;Orange;0;;Zero;SR/F;19495;1;;Wilier;Zero SLR;6899;1
-Volkswagen ;Amarok ;33000;Green;1;;Kymco;Super 8 150X;2099;0;;Ridley;Noah Fast;6499;0
-Volkswagen ;Arteon ;38000;Orange;0;;Piaggio;MP3 500 HPE Sport;9299;0;;Salsa;Cutthroat GRX 600;3199;0
-Ford ;Fusion ;23000;Brown;1;;Hyosung;GT250R;4099;0;;Kona;Rove DL;1749;0
-Ford ;Focus ;19000;Black;0;;SYM;Wolf CR300i;5999;1;;GT;Aggressor Pro;549;0
-Ford ;Ranger ;24000;Black;1;;Norton;V4RR;28000;0;;Diamondback;Atroz 2;1099;0
-Ford ;Transit Connect ;27000;Gray;0;;Energica;Ego+;24990;1;;Haro;Flightline One;449;0
-Ford ;Expedition ;52000;Green;1;;Victory;Magnum;22099;1;;Jamis;Renegade S4;1399;0
-Toyota ;Tacoma ;26000;Purple;0;;CanAm;Ryker;9999;0;;Norco;Charger 1;1399;0
-Toyota ;Tundra ;33000;Blue;1;;CFMoto;650GT;6749;0;;Raleigh;Tokul 3;1599;0
-Toyota ;Supra ;43000;Green;0;;Cagiva;Raptor 650;8500;0;;Scott;Genius eRIDE 920;5399;1
-Toyota ;4Runner;36000;Red;1;;SWM;Superdual X;9999;0;;Trek;Powerfly 5;3999;0
-Toyota ;Land Cruiser ;85000;Yellow;1;;Ural;Gear Up;18999;1;;Specialized;Turbo Levo;4949;1
-Peugeot ;3008;27000;Blue;1;;Bimota;Tesi H2;75000;0;;Pivot;Shuttle Race XT;10299;0
-Peugeot ;2008;23000;Black;1;;Derbi;GPR 125;3999;1;;Yeti;SB165 T2;10199;0
-Peugeot ;508;38000;Black;0;;Horex;VR6;65000;0;;Mondraker;Foxy Carbon RR;6999;0
-Peugeot ;308;27000;Blue;0;;Italjet;Dragster 125;4499;1;;Ibis;Mojo 4;4399;0
-Peugeot ;208;19000;Yellow;0;;Jawa;Perak;2491;1;;Cannondale;Jekyll;3600;0
-Chevrolet ;Blazer ;28000;Orange;1;;Kawasaki;VersysX 300;5499;0;;Santa Cruz;5010CS;5799;1
-Chevrolet ;Silverado 1500;28000;Black;1;;Keeway;Superlight 125;2299;1;;Rocky Mountain;Slayer Carbon;6799;0
-Chevrolet ;Corvette ;59000;Brown;1;;KYMCO;Like 150i ABS;2699;1;;Trek;Fuel EX 98 XT;6199;0
-Chevrolet ;Suburban ;52000;Red;1;;Lambretta;VSpecial;5349;0;;Specialized;Stumpjumper ST;2150;1
-Chevrolet ;Colorado ;25000;Orange;1;;Laverda;750 S;14990;1;;Giant;Trance Advanced Pro;7800;0
-Dodge ;Charger ;29000;Orange;0;;Mash;Dirt Track 125;2999;1;;Orbea;Occam H30;2999;1
-Dodge ;Durango ;32000;Black;0;;Moto Morini;Scrambler 1200;19990;0;;Niner;RIP 9 RDO SLX;5800;0
-Dodge ;Challenger ;28000;Yellow;0;;Mutt Motorcycles;RS13 250;6495;1;;Kona;Honzo CR;3899;0
-Dodge ;Grand Caravan ;27000;Green;1;;MV Agusta;Brutale 800;13498;1;;Yeti;ARC;4799;1
-Dodge ;Journey ;23000;Gray;0;;Norton;Dominator SS;27000;1;;BMC;Twostroke 01 One;4199;1
-Lamborghini ;Huracan ;261000;Brown;1;;Oset;24.0 Racing;4799;0;;Pinarello;Grevil Ultegra RX;5500;1
-Lamborghini ;Aventador ;493000;Black;1;;Piaggio;Beverly 350;6399;0;;Bianchi;Infinito CV;4300;1
-Lamborghini ;Gallardo ;200000;Blue;0;;Quadro;Qooder;11990;1;;Cervelo;Caledonia Ultegra;4300;1
-Ferrari ;812 Superfast;335000;Purple;0;;Royal Alloy;GT125;3999;0;;Colnago;C64;9999;0
-Ferrari ;458 Italia;230000;Black;0;;Royal Enfield;Bullet Trials 500;4999;1;;Felt;F1X;5499;0
-Jaguar ;FPACE ;45000;Orange;0;;Sinnis;Hoodlum 125;1999;0;;;;;
-Jaguar ;XJ ;76000;Black;1;;Super Soco;TC Max;5490;0;;;;;
-Jaguar ;FTYPE ;61000;Purple;0;;SWM;Ace of Spades;7790;1;;;;;
-Jaguar ;XF ;51000;Blue;0;;Sym;Cruisym;10000;1;;;;;
-Jaguar ;EPACE ;39000;Red;0;;;;;;;;;;
-Lamborghini ;Urus ;218000;Orange;1;;;;;;;;;;
-Lamborghini ;Sián ;3600000;Red;1;;;;;;;;;;
-Lamborghini ;Veneno ;4500000;Blue;0;;;;;;;;;;
-Ferrari ;Portofino ;215000;Brown;1;;;;;;;;;;
-Ferrari ;SF90 Stradale;625000;Green;1;;;;;;;;;;
+CarBrand;CarModel;CarPrice;IsDeleted;;BikeBrand;BikeBrand;BikePrice;IsDeleted;;BicycleBrand;BicycleModel;BicyclePrice;IsDeleted
+BMW ;X5;60395;0;;Honda;CBR500R;6999;0;;Trek;XCaliber 9;1799;0
+BMW ;4 Series;45000;1;;Yamaha;YZFR6;12199;0;;Specialized;Rockhopper Expert;1150;1
+BMW ;M2;59000;0;;Ducati;Scrambler Icon;9395;1;;Giant;Contend SL 1 Disc;1650;1
+BMW ;7 Series;87000;1;;Triumph;Street Triple RS;12550;0;;Cannondale;CAAD13 Disc 105;1750;1
+BMW ;i8;148000;1;;Kawasaki;Ninja ZX10R;16399;0;;Santa Cruz;Bronson C R;4299;1
+MercedesBenz ;EClass ;54000;1;;Harley-Davidson;Softail Deluxe;18399;0;;Yeti;SB130 C1;7199;0
+MercedesBenz ;GLS ;76000;1;;BMW;S 1000 XR;17895;1;;Pivot;Mach 4 SL Carbon;9999;1
+MercedesBenz ;GClass ;130000;0;;Suzuki;GSXR1000R;17749;0;;Ibis;Ripmo AF;3799;0
+MercedesBenz ;AMG C63;70000;1;;KTM;790 Adventure R;13699;0;;Scott;Scale 935;2699;1
+MercedesBenz ;SLS AMG ;224000;1;;Aprilia;Tuono V4 1100;15999;1;;Merida;Big Trail 400;1299;1
+Audi ;A7;69000;0;;MV Agusta;F4 Claudio;84498;0;;BMC;Teammachine SLR02 One;3999;0
+Audi ;Q3;34000;0;;Indian;Chieftain Limited;28999;0;;Orbea;Terra H30D;2199;1
+Audi ;R8;142000;0;;Husqvarna;Svartpilen 401;6299;0;;Pinarello;Dogma F12;9999;1
+Audi ;S5;52000;1;;Benelli;TNT 600;7499;0;;Bianchi;Oltre XR3;5500;1
+Audi ;A3;33000;0;;Royal Enfield;Himalayan;4749;0;;Cervelo;S3 Ultegra;4500;0
+Volkswagen ;Jetta ;18000;1;;Moto Guzzi;V7 III Stone;8490;1;;Colnago;Concept Ultegra;5499;1
+Volkswagen ;Touareg ;49000;0;;Vespa;GTS Super 300 HPE;7399;0;;Felt;AR1;8999;1
+Volkswagen ;eGolf ;31000;0;;Zero;SR/F;19495;1;;Wilier;Zero SLR;6899;1
+Volkswagen ;Amarok ;33000;1;;Kymco;Super 8 150X;2099;0;;Ridley;Noah Fast;6499;0
+Volkswagen ;Arteon ;38000;0;;Piaggio;MP3 500 HPE Sport;9299;0;;Salsa;Cutthroat GRX 600;3199;0
+Ford ;Fusion ;23000;1;;Hyosung;GT250R;4099;0;;Kona;Rove DL;1749;0
+Ford ;Focus ;19000;0;;SYM;Wolf CR300i;5999;1;;GT;Aggressor Pro;549;0
+Ford ;Ranger ;24000;1;;Norton;V4RR;28000;0;;Diamondback;Atroz 2;1099;0
+Ford ;Transit Connect ;27000;0;;Energica;Ego+;24990;1;;Haro;Flightline One;449;0
+Ford ;Expedition ;52000;1;;Victory;Magnum;22099;1;;Jamis;Renegade S4;1399;0
+Toyota ;Tacoma ;26000;0;;CanAm;Ryker;9999;0;;Norco;Charger 1;1399;0
+Toyota ;Tundra ;33000;1;;CFMoto;650GT;6749;0;;Raleigh;Tokul 3;1599;0
+Toyota ;Supra ;43000;0;;Cagiva;Raptor 650;8500;0;;Scott;Genius eRIDE 920;5399;1
+Toyota ;4Runner;36000;1;;SWM;Superdual X;9999;0;;Trek;Powerfly 5;3999;0
+Toyota ;Land Cruiser ;85000;1;;Ural;Gear Up;18999;1;;Specialized;Turbo Levo;4949;1
+Peugeot ;3008;27000;1;;Bimota;Tesi H2;75000;0;;Pivot;Shuttle Race XT;10299;0
+Peugeot ;2008;23000;1;;Derbi;GPR 125;3999;1;;Yeti;SB165 T2;10199;0
+Peugeot ;508;38000;0;;Horex;VR6;65000;0;;Mondraker;Foxy Carbon RR;6999;0
+Peugeot ;308;27000;0;;Italjet;Dragster 125;4499;1;;Ibis;Mojo 4;4399;0
+Peugeot ;208;19000;0;;Jawa;Perak;2491;1;;Cannondale;Jekyll;3600;0
+Chevrolet ;Blazer ;28000;1;;Kawasaki;VersysX 300;5499;0;;Santa Cruz;5010CS;5799;1
+Chevrolet ;Silverado 1500;28000;1;;Keeway;Superlight 125;2299;1;;Rocky Mountain;Slayer Carbon;6799;0
+Chevrolet ;Corvette ;59000;1;;KYMCO;Like 150i ABS;2699;1;;Trek;Fuel EX 98 XT;6199;0
+Chevrolet ;Suburban ;52000;1;;Lambretta;VSpecial;5349;0;;Specialized;Stumpjumper ST;2150;1
+Chevrolet ;Colorado ;25000;1;;Laverda;750 S;14990;1;;Giant;Trance Advanced Pro;7800;0
+Dodge ;Charger ;29000;0;;Mash;Dirt Track 125;2999;1;;Orbea;Occam H30;2999;1
+Dodge ;Durango ;32000;0;;Moto Morini;Scrambler 1200;19990;0;;Niner;RIP 9 RDO SLX;5800;0
+Dodge ;Challenger ;28000;0;;Mutt Motorcycles;RS13 250;6495;1;;Kona;Honzo CR;3899;0
+Dodge ;Grand Caravan ;27000;1;;MV Agusta;Brutale 800;13498;1;;Yeti;ARC;4799;1
+Dodge ;Journey ;23000;0;;Norton;Dominator SS;27000;1;;BMC;Twostroke 01 One;4199;1
+Lamborghini ;Huracan ;261000;1;;Oset;24.0 Racing;4799;0;;Pinarello;Grevil Ultegra RX;5500;1
+Lamborghini ;Aventador ;493000;1;;Piaggio;Beverly 350;6399;0;;Bianchi;Infinito CV;4300;1
+Lamborghini ;Gallardo ;200000;0;;Quadro;Qooder;11990;1;;Cervelo;Caledonia Ultegra;4300;1
+Ferrari ;812 Superfast;335000;0;;Royal Alloy;GT125;3999;0;;Colnago;C64;9999;0
+Ferrari ;458 Italia;230000;0;;Royal Enfield;Bullet Trials 500;4999;1;;Felt;F1X;5499;0
+Jaguar ;FPACE ;45000;0;;Sinnis;Hoodlum 125;1999;0;;;;;
+Jaguar ;XJ ;76000;1;;Super Soco;TC Max;5490;0;;;;;
+Jaguar ;FTYPE ;61000;0;;SWM;Ace of Spades;7790;1;;;;;
+Jaguar ;XF ;51000;0;;Sym;Cruisym;10000;1;;;;;
+Jaguar ;EPACE ;39000;0;;;;;;;;;;
+Lamborghini ;Urus ;218000;1;;;;;;;;;;
+Lamborghini ;Sián ;3600000;1;;;;;;;;;;
+Lamborghini ;Veneno ;4500000;0;;;;;;;;;;
+Ferrari ;Portofino ;215000;1;;;;;;;;;;
+Ferrari ;SF90 Stradale;625000;1;;;;;;;;;;

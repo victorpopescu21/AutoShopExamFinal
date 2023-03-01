@@ -9,5 +9,4 @@ import lombok.Setter;
 @Setter
 public class Car extends Product{
 
-    private String color;
 }

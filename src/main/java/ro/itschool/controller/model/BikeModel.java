@@ -6,13 +6,13 @@ import ro.itschool.entity.MotorBike;
 
 @Data
 public class BikeModel {
-    @CsvBindByPosition(position = 6)
+    @CsvBindByPosition(position = 5)
     private String brand;
-    @CsvBindByPosition(position = 7)
+    @CsvBindByPosition(position = 6)
     private String model;
-    @CsvBindByPosition(position = 8)
+    @CsvBindByPosition(position = 7)
     private Float price;
-    @CsvBindByPosition(position = 9)
+    @CsvBindByPosition(position = 8)
     private Boolean deleted;
 
     public MotorBike bikeToEntity(){

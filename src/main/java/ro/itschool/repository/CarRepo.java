@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface CarRepo extends JpaRepository<Car,Long> {
 
-    List<Car> findByColor(String name);
 
 
 }

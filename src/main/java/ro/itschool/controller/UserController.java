@@ -41,7 +41,7 @@ public class UserController {
 
     //---------DELETE a user by id for ADMINs only ------------------------------
     @RequestMapping(path = "/delete/{id}")
-    public String deleteUserById(Model model, @PathVariable("id") Long id) {
+    public String deleteUserById(Model model, @PathVariable("id") Long id) throws UserNotFound {
         if(userService.findById(id).isPresent()){
             userService.deleteById(id);
         }else throw new UserNotFound("User not found to be deleted!");

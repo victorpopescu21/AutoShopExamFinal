@@ -6,7 +6,6 @@ import ro.itschool.entity.Product;
 import ro.itschool.repository.CarRepo;
 import ro.itschool.repository.ProductRepository;
 import ro.itschool.service.ProductService;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -22,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> searchForProduct(String keyword) {
+    public List<Product> searchProduct(String keyword) {
         return productRepository.searchProduct(Objects.requireNonNullElse(keyword,""));
     }
 

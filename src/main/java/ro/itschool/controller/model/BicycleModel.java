@@ -5,13 +5,13 @@ import lombok.Data;
 import ro.itschool.entity.Bicycle;
 @Data
 public class BicycleModel {
-    @CsvBindByPosition(position = 11)
+    @CsvBindByPosition(position = 10)
     private String brand;
-    @CsvBindByPosition(position = 12)
+    @CsvBindByPosition(position = 11)
     private String model;
-    @CsvBindByPosition(position = 13)
+    @CsvBindByPosition(position = 12)
     private Float price;
-    @CsvBindByPosition(position = 14)
+    @CsvBindByPosition(position = 13)
     private Boolean deleted;
 
     public Bicycle cycleToEntity(){
