@@ -1,38 +1,45 @@
 # AutoShopExamFinal
-# Using Spring and Hibernate
 
-To update readme file
+This project is an online shop which has as products cars, motorbikes and bicycles. They are all inheriting the product class which defines all the attributes used in the project.
+This is a demonstration of Spring Boot 3.0 implementation.
 
-## Installation
+## Features
+* User registration and login with basic Spring Security authentication
+* Password encryption with BCrypt
+* Role-based authorization with Spring Security
+* Add products to shopping cart and convert shopping cart to order
+* Search of products by category/price
+* Logout mechanism
+* Accessing controller through front-end implemented with Thymleaf
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+## Technologies
+* Spring Boot 3.0
+* Hibernate
+* Maven
+* Spring Security
+* BCrypt
+* Maven
+* Thymleaf
 
-```bash
-pip install foobar
-```
 
-## Usage
+## Getting Started
+To get started with this project, you will need to have the following installed on your local machine:
 
-```python
-import foobar
+* JDK 17+
+* Maven 3+
 
-# returns 'words'
-foobar.pluralize('word')
+To build and run the project, follow these steps:
 
-# returns 'geese'
-foobar.pluralize('goose')
+* Clone the repository: `git clone https://github.com/victorpopescu21/AutoShopExamFinal.git`
+* Navigate to the project directory: cd AutoShopExamFinal
+* Build the project: mvn clean install
+* Run the project: mvn spring-boot:run
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+### Alternative
+* Simply install IntelliJ IDEA CE available for download at `https://www.jetbrains.com/idea/download` (Community Edition)
+* Open File > New > Project from Version Control
+* Add in the URL section: `https://github.com/victorpopescu21/AutoShopExamFinal.git`
+* Make sure Git is installed on Intellij
+* Last, but not the least, Run the `AutoShopApplication` available in `ro.itschool` package
 
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-No licenses yet.
+-> The application will be available at http://localhost:8080.
