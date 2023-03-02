@@ -13,14 +13,15 @@ public class BikeModel {
     @CsvBindByPosition(position = 7)
     private Float price;
     @CsvBindByPosition(position = 8)
-    private Boolean deleted;
+    private String vehicleType;
+
 
     public MotorBike bikeToEntity(){
         MotorBike bike = new MotorBike();
         bike.setBrand(this.brand);
         bike.setModel(this.model);
         bike.setPrice(this.price);
-        bike.setDeleted(this.deleted);
+        bike.setVehicleType(this.vehicleType);
         return bike;
     }
 }

@@ -38,8 +38,11 @@
 
 <div>
     <div class="container my-2">
+
         <div class="card ">
             <div class="card-body">
+                <div class="centered">
+                    <img src="https://www.promotor.ro/wp-content/uploads/2022/07/novitec-ferrari-sf90-stradale-2022.jpg" alt="" style="width:100%;">
                                 <div th:switch="${products}" class="container my-5">
                                     <div class="col-md-10">
                                         <div class="search-container">
@@ -68,7 +71,7 @@
                                                     <th> Brand </th>
                                                     <th> Model </th>
                                                     <th> Price </th>
-                                                    <th>Not Available</th>
+                                                    <th> Vehicle Type</th>
                                                     <th sec:authorize="hasRole('ROLE_ADMIN')"> Delete product </th>
                                                     <th> Add to cart</th>
 
@@ -83,7 +86,7 @@
                                                     <td><span th:text="${product.brand}"> </span></td>
                                                     <td><span th:text="${product.model}"> </span></td>
                                                     <td><span th:text="${product.price}"> </span></td>
-                                                    <td><span th:text="${product.deleted}"> </span></td>
+                                                    <td><span th:text="${product.vehicleType}"> </span></td>
                                                     <td sec:authorize="hasRole('ROLE_ADMIN')">
                                                         <a th:href="@{'/product/delete/' + ${product.id}}">
                                                             <i class="fas fa-trash"></i>
@@ -99,6 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
+                </div>
             </div>
         </div>
     </div>

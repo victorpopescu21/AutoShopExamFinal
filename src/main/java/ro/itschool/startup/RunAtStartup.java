@@ -30,9 +30,6 @@ public class RunAtStartup {
     private RoleService roleService;
 
     @Autowired
-    private ProductService productService;
-
-    @Autowired
     private ContactRepository contactRepository;
 
     @Autowired
@@ -68,7 +65,7 @@ public class RunAtStartup {
         myUser.setAccountNonExpired(true);
         myUser.setAccountNonLocked(true);
         myUser.setCredentialsNonExpired(true);
-        myUser.setEmail("victpop01@gmail.com");
+        myUser.setEmail("email01@gmail.com");
         myUser.setFullName("Victor Popescu");
         myUser.setPasswordConfirm("parola");
         myUser.setRandomTokenEmail("randomToken");

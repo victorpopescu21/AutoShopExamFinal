@@ -13,7 +13,10 @@ public class CarModel {
     @CsvBindByPosition(position = 2)
     private Float price;
     @CsvBindByPosition(position = 3)
-    private Boolean deleted;
+    private String vehicleType;
+
+
+
 
 
     public Car carToEntity(){
@@ -21,7 +24,7 @@ public class CarModel {
         car.setBrand(this.brand);
         car.setModel(this.model);
         car.setPrice(this.price);
-        car.setDeleted(this.deleted);
+        car.setVehicleType(this.vehicleType);
         return car;
     }
 }

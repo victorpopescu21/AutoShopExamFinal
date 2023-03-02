@@ -22,7 +22,11 @@ public class Product {
 
     private Float price;
 
-    private Boolean deleted;
+    private String vehicleType;
+
+
+
+
 
 
 

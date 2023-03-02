@@ -75,7 +75,6 @@ public class ProductController {
     }
     @PostMapping(value = "/add-new")
     public String addProduct(@ModelAttribute("product") @RequestBody Product product){
-        product.setDeleted(false);
         productService.saveProduct(product);
         return Constants.REDIRECT_TO_PRODUCT_SEARCH;
 
